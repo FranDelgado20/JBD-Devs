@@ -1,9 +1,9 @@
 import React from "react";
-
+import Image from 'react-bootstrap/Image'
 const HomePage = () => {
   return (
     <>
-    <h1>Hola bienvenidos</h1>
+     <Image src="" fluid />
     </>
   );
 };

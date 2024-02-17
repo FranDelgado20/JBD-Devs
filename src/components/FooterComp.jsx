@@ -1,19 +1,29 @@
 import { Col, Container, Row } from "react-bootstrap";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FooterComp = () => {
   return (
     <Container fluid className="bg-neutral-900 py-2 ">
-      <Row className=" text-neutral-100  align-items-center ">
-        <Col sm={6} className="flex justify-center">
-          <img src="/11-removebg-preview.png" alt="logo" className="w-48" />
+      <Row className=" text-neutral-100 align-items-center ">
+        <Col sm={6} className="flex justify-center my-3">
+          <Link to={"/"}>
+            <img src="/11-removebg-preview.png" alt="logo" className="w-48" />
+          </Link>
         </Col>
-        <Col sm={6} className="flex justify-center my-4 align-items-baseline">
-          <h2 >Encontranos en</h2>
-          <i className="bi bi-linkedin fs-2 mx-3 "></i>
+        <Col sm={6} className="flex justify-center my-3 align-items-baseline">
+          <h2>Encontranos en</h2>
+          <a
+            href="https://www.linkedin.com/in/jbd-devs-87426a2b4/"
+            className="linkedIn"
+            target="_blank"
+          >
+            <i className="bi bi-linkedin fs-2 mx-3 "></i>
+          </a>
         </Col>
       </Row>
-      <p className="text-center text-neutral-100 mb-0 ">
+      <hr className="text-neutral-100" />
+      <p className="text-center text-neutral-100">
         © 2024 JBD Devs. All rights reserved.
       </p>
     </Container>

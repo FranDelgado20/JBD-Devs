@@ -3,7 +3,7 @@ import React from 'react'
 const ContactPage = () => {
   return (
     <>
-    <div className="container mx-auto ">
+    {/* <div className="container mx-auto ">
 
       <figure className="bg-slate-100 rounded-xl p-8 w-80 dark:bg-slate-800 shadow-2xl " >
         <img
@@ -26,7 +26,7 @@ const ContactPage = () => {
           </figcaption>
         </div>
       </figure>
-          </div>
+          </div> */}
     </>
   )
 }
