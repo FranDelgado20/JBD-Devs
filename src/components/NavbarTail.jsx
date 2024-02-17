@@ -122,6 +122,8 @@ const NavbarTail = () => {
   const { pathname } = useLocation();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleClick = () => setMobileMenuOpen(!mobileMenuOpen)
   return (
     <>
       <header className="bg-neutral-900">
@@ -195,6 +197,7 @@ const NavbarTail = () => {
                     <Link
                       key={item.name}
                       to={item.to}
+                      onClick={handleClick}
                       className={`block text-base font-semibold leading-7 text-neutral-100 hover:bg-neutral-700 hover:text-white rounded-md px-2 py-1 text-md  no-underline ${
                         pathname === item.to
                           ? "text-white bg-stone-800"
