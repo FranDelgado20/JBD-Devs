@@ -15,7 +15,7 @@ const App = () => {
             <NavbarTail />
             {/* <NavbarComp/> */}
           </div>
-          <main className="mainSection">
+          <main className="mainSection bg-neutral-950	">
             <RoutesViews />
           </main>
           <div>

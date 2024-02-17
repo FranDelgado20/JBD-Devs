@@ -8,15 +8,13 @@ const FooterComp = () => {
         <Col sm={6} className="flex justify-center">
           <img src="/11-removebg-preview.png" alt="logo" className="w-48" />
         </Col>
-        <Col sm={6} className="flex justify-center my-4">
+        <Col sm={6} className="flex justify-center my-4 align-items-baseline">
+          <h2 >Encontranos en</h2>
           <i className="bi bi-linkedin fs-2 mx-3 "></i>
-          <i className="bi bi-github fs-2 mx-3 "></i>
-          <i className="bi bi-github fs-2 mx-3"></i>
-          <i className="bi bi-github fs-2 mx-3"></i>
         </Col>
       </Row>
       <p className="text-center text-neutral-100 mb-0 ">
-        © 2024 Your Company, Inc. All rights reserved.
+        © 2024 JBD Devs. All rights reserved.
       </p>
     </Container>
   );
