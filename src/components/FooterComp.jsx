@@ -12,13 +12,13 @@ const FooterComp = () => {
           </Link>
         </Col>
         <Col sm={6} className="flex justify-center my-3 align-items-baseline">
-          <h2>Encontranos en</h2>
+          <h3 >Encontranos en</h3>
           <a
             href="https://www.linkedin.com/in/jbd-devs-87426a2b4/"
             className="linkedIn"
             target="_blank"
           >
-            <i className="bi bi-linkedin fs-2 mx-3 "></i>
+            <i className="bi bi-linkedin fs-3 mx-3 "></i>
           </a>
         </Col>
       </Row>
