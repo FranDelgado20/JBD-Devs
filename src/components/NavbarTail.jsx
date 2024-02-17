@@ -111,12 +111,16 @@ import React from "react";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link, useLocation } from "react-router-dom";
 const navigation = [
-  { name: "Inicio", href: "/", current: false },
-  { name: "Contacto", href: "/contact", current: false },
-  { name: "Servicio", href: "#", current: false },
+  { name: "Inicio", to: "/", current: false },
+  { name: "Contacto", to: "/contact", current: false },
+  { name: "Sobre nosotros", to: "/aboutus", current: false },
+  { name: "Servicio", to: "#", current: false },
 ];
 const NavbarTail = () => {
+  const { pathname } = useLocation();
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
@@ -126,15 +130,15 @@ const NavbarTail = () => {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5 w-44">
-              <span className="sr-only">Your Company</span>
-              <img className="img-fluid" src="11-removebg-preview.png" alt="" />
-            </a>
+            <Link to={"/"} className="-m-1.5 p-1.5 w-44">
+              {/* <span className="sr-only">Your Company</span> */}
+              <img className="img-fluid" src="11-removebg-preview.png" alt="Logo JDB Devs" />
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 "
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -143,34 +147,38 @@ const NavbarTail = () => {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                className="text-sm font-semibold leading-6 text-neutral-100 hover:bg-neutral-700 hover:text-white rounded-md px-2 py-1 text-md  no-underline"
+                to={item.to}
+                className={`text-sm font-semibold leading-6 px-2 py-1 text-md no-underline rounded-md ${
+                  pathname === item.to
+                    ? "text-white bg-stone-800"
+                    : "text-neutral-100 hover:bg-neutral-700 hover:text-white"
+                }`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end"></div>
         </nav>
         <Dialog
           as="div"
-          className="lg:hidden "
+          className="lg:hidden"
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
         >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-neutral-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5 w-44">
-                <span className="sr-only">Your Company</span>
+              <Link to="/" className="-m-1.5 p-1.5 w-44">
+                {/* <span className="sr-only">Your Company</span> */}
                 <img
                   className="img-fluid"
                   src="11-removebg-preview.png"
-                  alt=""
+                  alt="Logo JDB Devs"
                 />
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -184,13 +192,17 @@ const NavbarTail = () => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
-                      className="-mx-3 block text-base font-semibold leading-7 text-neutral-100 hover:bg-neutral-700 hover:text-white rounded-md px-2 py-1 text-md  no-underline"
+                      to={item.to}
+                      className={`block text-base font-semibold leading-7 text-neutral-100 hover:bg-neutral-700 hover:text-white rounded-md px-2 py-1 text-md  no-underline ${
+                        pathname === item.to
+                          ? "text-white bg-stone-800"
+                          : "text-neutral-100 hover:bg-neutral-700 hover:text-white"
+                      }`}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
