@@ -22,9 +22,13 @@
   background-color: #000000;
   background-image: linear-gradient(180deg, #000000 0%, #141414 100%);
 }
+/* .tamaño-img{
+  width: 100vh;
+} */
 
 @media(max-width: 767px){
   .marginImg{
     margin-bottom: 15px;
   }
+  
 }
