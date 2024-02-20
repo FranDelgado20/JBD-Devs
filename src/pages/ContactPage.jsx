@@ -52,8 +52,53 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Formik } from "formik";
 import { errorComment } from "../utils/validationSchema";
-
+import { useCountries } from "use-react-countries";
+import {
+  Input,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@material-tailwind/react";
 const ContactPage = () => {
+  const { countries } = useCountries();
+
+  // Definir los países que deseas mostrar en el menú
+  const countriesToShow = [
+    "Argentina",
+    "Brazil",
+    "Chile",
+    "Spain",
+    "United States",
+    "United Kingdom",
+    "Canada",
+    "Australia",
+    "Ecuador",
+    "Peru",
+    "Colombia",
+    "Mexico",
+    "Uruguay",
+  ];
+
+  // Filtrar los países que coinciden con la lista countriesToShow
+  const filteredCountries = countries.filter((country) =>
+    countriesToShow.includes(country.name)
+  );
+
+  // Encontrar el índice de Argentina en el array filtrado
+  const argentinaIndex = filteredCountries.findIndex(
+    (country) => country.name === "Argentina"
+  );
+
+  // Estado para el país seleccionado
+  const [country, setCountry] = React.useState(
+    argentinaIndex !== -1 ? argentinaIndex : 0
+  );
+
+  // Obtener los detalles del país seleccionado
+  const { name, flags, countryCallingCode } = filteredCountries[country];
+
   const sendComment = () => {
     console.log(values);
   };
@@ -67,10 +112,9 @@ const ContactPage = () => {
               Tu consulta no nos molesta
             </div>
             <p className="text-slate-700 dark:text-slate-500">
-              Rellena el formulario, y próximamente uno de nosotros
-              se pondrá en contacto. También puedes
-              escribirnos a través de nuestro correo electrónico:
-              jbddevs@gmail.com
+              Rellena el formulario, y próximamente uno de nosotros se pondrá en
+              contacto. También puedes escribirnos a través de nuestro correo
+              electrónico: jbddevs@gmail.com
             </p>
           </figcaption>
         </Col>
@@ -78,9 +122,10 @@ const ContactPage = () => {
           <Formik
             initialValues={{
               email: "",
-              name: "",
+              nombre: "",
               tel: "",
               msg: "",
+              tel: ""
             }}
             onSubmit={(values) => sendComment(values)}
             validationSchema={errorComment}
@@ -110,10 +155,10 @@ const ContactPage = () => {
                 <div className="relative z-0 w-full mb-4 group">
                   <input
                     type="text"
-                    name="name"
+                    name="nombre"
                     id="floating_name"
                     onChange={handleChange}
-                    value={values.name}
+                    value={values.nombre}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
                     placeholder=" "
                   />
@@ -124,27 +169,166 @@ const ContactPage = () => {
                     Nombre y apellido
                   </label>
                   <small className="text-danger">
+                    {errors.nombre && touched.nombre && errors.nombre}
+                  </small>
+                </div>
+                <div className="relative z-0 w-full mb-4 group flex">
+                  <Menu placement="bottom-start ">
+                    <MenuHandler>
+                      <Button
+                        ripple={false}
+                        variant="text"
+                        color="blue-gray"
+                        className="  relative items-center -ms-6  text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6  top-7 -z-10 origin-[0]  d-flex  "
+                      >
+                        <img
+                          src={flags.svg}
+                          alt={name}
+                          className="h-4 w-4 rounded-full object-cover"
+                        />
+                        {countryCallingCode}
+                      </Button>
+                    </MenuHandler>
+                    <MenuList className="max-h-[20rem] max-w-[18rem]">
+                      {filteredCountries.map(
+                        ({ name, flags, countryCallingCode }, index) => (
+                          <MenuItem
+                            key={name}
+                            value={name}
+                            className="flex items-center gap-2"
+                            onClick={() => setCountry(index)}
+                          >
+                            <img
+                              src={flags.svg}
+                              alt={name}
+                              className="h-5 w-5 rounded-full object-cover"
+                            />
+                            {name}{" "}
+                            <span className="ml-auto">
+                              {countryCallingCode}
+                            </span>
+                          </MenuItem>
+                        )
+                      )}
+                    </MenuList>
+                  </Menu>
+                  <input
+                    type="text"
+                    name="tel"
+                    id="floating_name"
+                    onChange={handleChange}
+                    value={values.tel}
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                    placeholder=" "
+                  />
+                  <label
+                    htmlFor="floating_name"
+                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:dark:text-neutral-50 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 d-flex justify-content-end"
+                  >
+                    <div className="ms-16">Número de teléfono (Optativo)</div>
+                    <div>
+                      {/* <Menu placement="bottom-start">
+                      <MenuHandler>
+                        <Button
+                          ripple={false}
+                          variant="text"
+                          color="blue-gray"
+                          className="  relative items-center   text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6  top-3 -z-10 origin-[0]  d-flex  "
+                          >
+                          <img
+                            src={flags.svg}
+                            alt={name}
+                            className="h-4 w-4 rounded-full object-cover"
+                          />
+                          {countryCallingCode}
+                        </Button>
+                      </MenuHandler>
+                      <MenuList className="max-h-[20rem] max-w-[18rem]">
+                        {filteredCountries.map(
+                          ({ name, flags, countryCallingCode }, index) => (
+                            <MenuItem
+                            key={name}
+                            value={name}
+                            className="flex items-center gap-2"
+                            onClick={() => setCountry(index)}
+                            >
+                              <img
+                                src={flags.svg}
+                                alt={name}
+                                className="h-5 w-5 rounded-full object-cover"
+                                />
+                              {name}{" "}
+                              <span className="ml-auto">
+                                {countryCallingCode}
+                              </span>
+                            </MenuItem>
+                          )
+                        )}
+                      </MenuList>
+                    </Menu> */}
+                    </div>
+                  </label>
+                  <small className="text-danger">
                     {errors.name && touched.name && errors.name}
                   </small>
                 </div>
-                {/* <div className="relative z-0 w-full mb-4 group">
-                  <input
+
+                {/* <div className="relative flex w-full max-w-[24rem]">
+                  <Menu placement="bottom-start">
+                  <MenuHandler>
+                  <Button
+                  ripple={false}
+                  variant="text"
+                  color="blue-gray"
+                  className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+                  >
+                  <img
+                  src={flags.svg}
+                          alt={name}
+                          className="h-4 w-4 rounded-full object-cover"
+                        />
+                        {countryCallingCode}
+                      </Button>
+                    </MenuHandler>
+                    <MenuList className="max-h-[20rem] max-w-[18rem]">
+                      {filteredCountries.map(
+                        ({ name, flags, countryCallingCode }, index) => (
+                          <MenuItem
+                            key={name}
+                            value={name}
+                            className="flex items-center gap-2"
+                            onClick={() => setCountry(index)}
+                          >
+                            <img
+                              src={flags.svg}
+                              alt={name}
+                              className="h-5 w-5 rounded-full object-cover"
+                            />
+                            {name}{" "}
+                            <span className="ml-auto">
+                              {countryCallingCode}
+                            </span>
+                          </MenuItem>
+                        )
+                      )}
+                    </MenuList>
+                  </Menu>
+                  <Input
                     type="tel"
-                    name="tel"
-                    maxLength={13}
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    id="floating_phone"
-                    onChange={handleChange}
-                    value={values.tel}
-                    className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer`}
-                    placeholder=" "
-                    required
+                    placeholder="Mobile Number"
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                    labelProps={{
+                      className: "before:content-none after:content-none",
+                    }}
+                    containerProps={{
+                      className: "min-w-0",
+                    }}
                   />
                   <label
-                    htmlFor="floating_phone"
-                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/ peer-focus:dark:text-neutral-50 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    htmlFor="floating_name"
+                    className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:dark:text-neutral-50 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                   >
-                    Número de teléfono (opcional)
+                    Nombre y apellido
                   </label>
                 </div> */}
                 <div className="relative z-0 w-full mb-4 group">

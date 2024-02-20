@@ -1,6 +1,6 @@
 import * as yup from "yup";
 export const errorComment = yup.object().shape({
-  name: yup.string().required("Campo nombre y apellido obligatorio"),
+  nombre: yup.string().required("Campo nombre y apellido obligatorio"),
 
   email: yup
     .string()
