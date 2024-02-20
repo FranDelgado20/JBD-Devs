@@ -8,10 +8,10 @@ import {
 import React from "react";
 import { Col } from "react-bootstrap";
 
-const CardComp = ({ img, name }) => {
+const CardComp = ({ img, name, github }) => {
   return (
     <Col lg={4} className="">
-      <div className="rounded-lg  color-card "  shadow={false}>
+      <div className="rounded-lg color-card">
         <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}
@@ -25,14 +25,11 @@ const CardComp = ({ img, name }) => {
           >
             {name}
           </Typography>
-         
-          <div className=" ">
-          <button>
 
-            <i className="bi bi-github text-white fs-1"></i>
-          </button>
-            
-          
+          <div>
+            <a className="text-slate-50 hover:text-slate-500 transition" href={github} target="_blank">
+              <i className="bi bi-github fs-1"></i>
+            </a>
           </div>
         </CardBody>
       </div>
