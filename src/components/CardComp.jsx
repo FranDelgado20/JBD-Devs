@@ -12,11 +12,11 @@ const CardComp = ({ img, name }) => {
   return (
     <Col lg={4} className="">
       <div className="rounded-lg  color-card "  shadow={false}>
-        <CardBody className="text-center mx-auto my-3">
+        <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}
             alt={name}
-            className="mx-auto mb-6 object-top rounded-full w-44 "
+            className="mx-auto mb-6 object-top rounded-full w-44 tamaño-img-cel "
           />
           <Typography
             variant="h5"

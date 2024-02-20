@@ -115,8 +115,7 @@ import { Link, useLocation } from "react-router-dom";
 const navigation = [
   { name: "Inicio", to: "/", current: false },
   { name: "Contacto", to: "/contact", current: false },
-  { name: "Sobre nosotros", to: "/aboutus", current: false },
-  { name: "Servicio", to: "#", current: false },
+ 
 ];
 const NavbarTail = () => {
   const { pathname } = useLocation();

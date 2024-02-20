@@ -63,7 +63,7 @@ const HomePage = () => {
         <section className="min-h-screen py-8 px-8 lg:py-28">
           <div className="container mx-auto">
             <div className="mb-16 text-center lg:mb-28">
-              <Typography variant="h2" className="!text-gray-500">
+              <Typography variant="h2" className="!text-gray-500 ">
                 ¡Conozca a nuestro equipo!
               </Typography>
               <Typography
@@ -74,7 +74,7 @@ const HomePage = () => {
               </Typography>
               <Typography
                 variant="lead"
-                className="mx-auto w-full !text-gray-400 max-w-4xl text-justify"
+                className="mx-auto w-full !text-gray-400 max-w-4xl text-justify tamaño-cel"
               >
                 Somos un equipo apasionado de desarrolladores web dedicados a
                 hacer realidad tus ideas digitales. Con una combinación única de
