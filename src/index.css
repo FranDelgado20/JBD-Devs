@@ -33,5 +33,11 @@
   .marginImg{
     margin-bottom: 15px;
   }
+  .tamaño-cel{
+    font-size: small;
+  }
+  .tamaño-img-cel{
+    width: 100px;
+  }
   
 }
