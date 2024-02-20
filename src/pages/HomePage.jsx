@@ -1,17 +1,9 @@
 // import { Card, CardBody, Tooltip, Typography } from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import {
-  Card,
-  CardBody,
-  Avatar,
-  IconButton,
   Typography,
-  Stepper,
-  Step,
   Button,
-  CardHeader,
   Accordion,
   AccordionHeader,
   AccordionBody,
@@ -20,16 +12,19 @@ import CardComp from "../components/CardComp";
 import { Link } from "react-router-dom";
 const members = [
   {
-    img: `/jaime.png`,
+    img: `/jaime2.png`,
     name: "Santiago Jaime",
+    github: "https://github.com/SantiJaime"
   },
   {
     img: `/bude.png`,
     name: "Tomás Budeguer",
+    github: "https://github.com/TomasBudeguer"
   },
   {
     img: `/dlg.png`,
     name: "Francisco Delgado",
+    github: "https://github.com/FranDelgado20"
   },
 ];
 function Icon({ id, open }) {
@@ -53,7 +48,7 @@ function Icon({ id, open }) {
   );
 }
 const HomePage = () => {
-  const [open, setOpen] = React.useState(1);
+  const [open, setOpen] = useState(1);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
@@ -111,11 +106,11 @@ const HomePage = () => {
         </section>
         <Container className="w-100  flex justify-center text-gray-400">
           <section className="w-">
-            <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-              <AccordionHeader className="fs-4" onClick={() => handleOpen(1)}>
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />} className="mb-2">
+              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(1)}>
                 ¿Tienes una idea en mente?
               </AccordionHeader>
-              <AccordionBody className=" -mt-7 text-gray-200">
+              <AccordionBody className="py-2 text-gray-200">
                 ¡Nos encanta escuchar nuevas ideas y convertirlas en realidad!
                 En JBD Devs, estamos aquí para ayudarte a hacer realidad tus
                 sueños digitales. Ya sea que tengas una idea brillante para un
@@ -124,27 +119,26 @@ const HomePage = () => {
                 escucharte!
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
-              <AccordionHeader className="fs-4" onClick={() => handleOpen(2)}>
+            <Accordion open={open === 2} icon={<Icon id={2} open={open} />} className="my-3">
+              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(2)}>
                 ¿Listo para dar el primer paso?
               </AccordionHeader>
-              <AccordionBody className=" -mt-7 text-gray-200">
+              <AccordionBody className="py-2 text-gray-200">
                 ¡Nos encantaría conocer más sobre tu idea! No importa si es solo
                 un esbozo en una servilleta o una visión clara y detallada,
                 estamos aquí para ayudarte a darle vida.
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-              <AccordionHeader className="fs-4" onClick={() => handleOpen(3)}>
+            <Accordion open={open === 3} icon={<Icon id={3} open={open} />} className="mt-2">
+              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(3)}>
                 ¡Hagamos que suceda!
               </AccordionHeader>
               <div className="flex align-items-center">
-                <AccordionBody className=" -mt-6 text-gray-200">
+                <AccordionBody className="text-gray-200 py-2">
                   ¡No esperes más! Ponte en contacto con nosotros hoy mismo y
                   descubre cómo podemos colaborar para hacer realidad tus
                   ambiciones digitales.
-                  <Link className="-mt-7 ms-3  no-underline" to={"/contact"}>
-                    {" "}
+                  <Link className=" ms-3 no-underline" to={"/contact"}>
                     <Button
                       variant="outlined"
                       size="sm"
@@ -157,7 +151,6 @@ const HomePage = () => {
               </div>
             </Accordion>
           </section>
-          <section></section>
         </Container>
         <Container fluid >
         <div className="  py-24 sm:py-32">
