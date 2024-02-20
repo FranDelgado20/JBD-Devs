@@ -74,7 +74,7 @@ const HomePage = () => {
               </Typography>
               <Typography
                 variant="lead"
-                className="mx-auto w-full !text-gray-400 max-w-4xl"
+                className="mx-auto w-full !text-gray-400 max-w-4xl text-justify"
               >
                 Somos un equipo apasionado de desarrolladores web dedicados a
                 hacer realidad tus ideas digitales. Con una combinación única de
