@@ -125,7 +125,7 @@ const ContactPage = () => {
               nombre: "",
               tel: "",
               msg: "",
-              tel: ""
+              
             }}
             onSubmit={(values) => sendComment(values)}
             validationSchema={errorComment}
@@ -173,7 +173,7 @@ const ContactPage = () => {
                   </small>
                 </div>
                 <div className="relative z-0 w-full mb-4 group flex">
-                  <Menu placement="bottom-start ">
+                  <Menu placement="bottom-start  ">
                     <MenuHandler>
                       <Button
                         ripple={false}
@@ -189,7 +189,7 @@ const ContactPage = () => {
                         {countryCallingCode}
                       </Button>
                     </MenuHandler>
-                    <MenuList className="max-h-[20rem] max-w-[18rem]">
+                    <MenuList className="max-h-[20rem] max-w-[18rem] bg- border-0  bg-neutral-950 text-gray-500">
                       {filteredCountries.map(
                         ({ name, flags, countryCallingCode }, index) => (
                           <MenuItem

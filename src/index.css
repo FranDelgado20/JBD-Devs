@@ -11,6 +11,7 @@
 .mainSection {
   flex-grow: 1;
 }
+
 .linkedIn {
   color: white;
 }
@@ -22,9 +23,11 @@
   background-color: #000000;
   background-image: linear-gradient(180deg, #000000 0%, #141414 100%);
 }
-/* .tamaño-img{
-  width: 100vh;
-} */
+
+
+.color-card{
+  background-color: #15181a;
+}
 
 @media(max-width: 767px){
   .marginImg{
