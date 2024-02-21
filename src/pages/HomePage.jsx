@@ -30,7 +30,7 @@ const members = [
     github: "https://github.com/SantiJaime",
   },
   {
-    img: `/bude.png`,
+    img: `/budemejor.png`,
     name: "Tomás Budeguer",
     github: "https://github.com/TomasBudeguer",
   },

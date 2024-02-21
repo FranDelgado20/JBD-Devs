@@ -72,7 +72,7 @@ const AccordionComp = () => {
         </div>
         <Col lg={6} className="flex justify-center">
           <div className="lg:max-w-lg">
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-400 sm:text-4xl">
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-400 sm:text-4xl ">
               ¡Queremos trabajar con vos!
             </h1>
 
@@ -84,7 +84,7 @@ const AccordionComp = () => {
                   className="mb-2"
                 >
                   <AccordionHeader
-                    className="fs-4 p-0 text-gray-400"
+                    className="border-gray fs-4 p-1 rounded text-gray-950 bg-gray-400 shadow-md shadow-gray-950"
                     onClick={() => handleOpen(1)}
                   >
                     ¿Tienes una idea en mente?
@@ -104,7 +104,7 @@ const AccordionComp = () => {
                   className="my-3"
                 >
                   <AccordionHeader
-                    className="fs-4 p-0 text-gray-400"
+                    className=" border-gray fs-4 p-1 text-gray-950 bg-gray-400 text-start rounded shadow-md shadow-gray-950"
                     onClick={() => handleOpen(2)}
                   >
                     ¿Listo para dar el primer paso?
@@ -121,7 +121,7 @@ const AccordionComp = () => {
                   className="mt-2"
                 >
                   <AccordionHeader
-                    className="fs-4 p-0 text-gray-400"
+                    className="border-gray fs-4 p-1 rounded  text-gray-950 bg-gray-400 shadow-md shadow-gray-950"
                     onClick={() => handleOpen(3)}
                   >
                     ¡Hagamos que suceda!
@@ -135,7 +135,7 @@ const AccordionComp = () => {
                         <Button
                           variant="outlined"
                           size="sm"
-                          className="rounded-full bg-white mt-3"
+                          className="rounded-full bg-white mt-3 shadow-md shadow-gray-950"
                         >
                           Contáctanos
                         </Button>
