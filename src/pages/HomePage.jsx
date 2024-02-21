@@ -19,6 +19,7 @@ import {
 import CardComp from "../components/CardComp";
 import { Link } from "react-router-dom";
 import TabsComp from "../components/TabsComp";
+import AccordionComp from "../components/AccordionComp";
 // import { useState } from 'react';
 
 const members = [
@@ -116,7 +117,7 @@ const HomePage = () => {
           </div>
         </section>
         <Container fluid>
-          <div className="relative isolate overflow-hidden color-card px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+          {/* <div className="relative isolate overflow-hidden color-card px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div className="absolute inset-0 -z-10 overflow-hidden">
               <svg
                 className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-500 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
@@ -237,7 +238,8 @@ const HomePage = () => {
                 
               </div>
             </div>
-          </div>
+          </div> */}
+          <AccordionComp/>
         </Container>
         {/* <Container fluid className="w-100  flex justify-center text-gray-400">
           
