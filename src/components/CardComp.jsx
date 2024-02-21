@@ -11,7 +11,7 @@ import { Col } from "react-bootstrap";
 const CardComp = ({ img, name, github }) => {
   return (
     <Col lg={4} className="">
-      <div className="rounded-lg color-card">
+      <div className="rounded-lg color-card shadow-md shadow-neutral-950">
         <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}
@@ -26,7 +26,7 @@ const CardComp = ({ img, name, github }) => {
             {name}
           </Typography>
 
-          <div>
+          <div >
             <a className="text-slate-50 hover:text-slate-500 transition" href={github} target="_blank">
               <i className="bi bi-github fs-1"></i>
             </a>
