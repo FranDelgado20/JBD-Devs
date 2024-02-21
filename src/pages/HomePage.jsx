@@ -10,21 +10,24 @@ import {
 } from "@material-tailwind/react";
 import CardComp from "../components/CardComp";
 import { Link } from "react-router-dom";
+import TabsComp from "../components/TabsComp";
+// import { useState } from 'react';
+
 const members = [
   {
     img: `/jaime2.png`,
     name: "Santiago Jaime",
-    github: "https://github.com/SantiJaime"
+    github: "https://github.com/SantiJaime",
   },
   {
     img: `/bude.png`,
     name: "Tomás Budeguer",
-    github: "https://github.com/TomasBudeguer"
+    github: "https://github.com/TomasBudeguer",
   },
   {
     img: `/dlg.png`,
     name: "Francisco Delgado",
-    github: "https://github.com/FranDelgado20"
+    github: "https://github.com/FranDelgado20",
   },
 ];
 function Icon({ id, open }) {
@@ -106,8 +109,15 @@ const HomePage = () => {
         </section>
         <Container className="w-100  flex justify-center text-gray-400">
           <section className="w-">
-            <Accordion open={open === 1} icon={<Icon id={1} open={open} />} className="mb-2">
-              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(1)}>
+            <Accordion
+              open={open === 1}
+              icon={<Icon id={1} open={open} />}
+              className="mb-2"
+            >
+              <AccordionHeader
+                className="fs-4 p-0"
+                onClick={() => handleOpen(1)}
+              >
                 ¿Tienes una idea en mente?
               </AccordionHeader>
               <AccordionBody className="py-2 text-gray-200">
@@ -119,8 +129,15 @@ const HomePage = () => {
                 escucharte!
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 2} icon={<Icon id={2} open={open} />} className="my-3">
-              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(2)}>
+            <Accordion
+              open={open === 2}
+              icon={<Icon id={2} open={open} />}
+              className="my-3"
+            >
+              <AccordionHeader
+                className="fs-4 p-0"
+                onClick={() => handleOpen(2)}
+              >
                 ¿Listo para dar el primer paso?
               </AccordionHeader>
               <AccordionBody className="py-2 text-gray-200">
@@ -129,8 +146,15 @@ const HomePage = () => {
                 estamos aquí para ayudarte a darle vida.
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 3} icon={<Icon id={3} open={open} />} className="mt-2">
-              <AccordionHeader className="fs-4 p-0" onClick={() => handleOpen(3)}>
+            <Accordion
+              open={open === 3}
+              icon={<Icon id={3} open={open} />}
+              className="mt-2"
+            >
+              <AccordionHeader
+                className="fs-4 p-0"
+                onClick={() => handleOpen(3)}
+              >
                 ¡Hagamos que suceda!
               </AccordionHeader>
               <div className="flex align-items-center">
@@ -152,51 +176,54 @@ const HomePage = () => {
             </Accordion>
           </section>
         </Container>
-        <Container fluid >
-        <div className="  py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-lg font-semibold leading-8 text-gray-400">
-          Tecnologías utilizadas
-        </h2>
-        <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png"
-            alt="Transistor"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="/tailwind-removebg-preview.png"
-            alt="Reform"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            src="https://react-bootstrap.netlify.app/img/logo.svg"
-            alt="Tuple"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-5-logo-icon.png"
-            alt="SavvyCal"
-            width={158}
-            height={48}
-          />
-          <img
-            className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            src="https://www.material-tailwind.com/image/logo-mt.png"
-            alt="Statamic"
-            width={158}
-            height={48}
-          />
-        </div>
-      </div>
-    </div>
+        <Container fluid>
+          <TabsComp />
+        </Container>
+        <Container fluid>
+          <div className="  py-24 sm:py-32">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <h2 className="text-center text-lg font-semibold leading-8 text-gray-400">
+                Tecnologías utilizadas
+              </h2>
+              <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                <img
+                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                  src="https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png"
+                  alt="Transistor"
+                  width={158}
+                  height={48}
+                />
+                <img
+                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                  src="/tailwind-removebg-preview.png"
+                  alt="Reform"
+                  width={158}
+                  height={48}
+                />
+                <img
+                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                  src="https://react-bootstrap.netlify.app/img/logo.svg"
+                  alt="Tuple"
+                  width={158}
+                  height={48}
+                />
+                <img
+                  className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-5-logo-icon.png"
+                  alt="SavvyCal"
+                  width={158}
+                  height={48}
+                />
+                <img
+                  className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                  src="https://www.material-tailwind.com/image/logo-mt.png"
+                  alt="Statamic"
+                  width={158}
+                  height={48}
+                />
+              </div>
+            </div>
+          </div>
         </Container>
       </Container>
     </>
