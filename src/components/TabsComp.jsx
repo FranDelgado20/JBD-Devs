@@ -68,7 +68,7 @@ const data = [
 
 const TabsComp = () => {
   const [active, setActive] = React.useState("/Ifaun1.png");
-  const [activeTab, setActiveTab] = React.useState("html");
+  const [activeTab, setActiveTab] = React.useState("Ifaun");
 
   return (
     <div className=" text-center my-5 w-full ">
