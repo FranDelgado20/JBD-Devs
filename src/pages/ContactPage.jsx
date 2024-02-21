@@ -139,7 +139,7 @@ const ContactPage = () => {
   return (
     <Container className="my-4">
       <Row>
-        <Col md={6} sm={12}>
+        <Col md={6} sm={12} data-aos="fade-right">
           <figcaption className="font-medium mt-24">
             <div className="dark:text-slate-300 fs-3">
               Tu consulta no molesta
@@ -147,18 +147,10 @@ const ContactPage = () => {
             <p className="text-slate-700 dark:text-slate-500">
               Rellena el formulario, y próximamente uno de nosotros se pondrá en
               contacto. También puedes escribirnos a través de nuestro correo
-              electrónico:
-              <a
-                href="mailto:jbddevs@gmail.com"
-                target="_blank"
-                rel="noreferrer"
-                className="ms-1 text-slate-400 hover:text-slate-700 transition"
-              >
-                jbddevs@gmail.com
-              </a>
+              electrónico
             </p>
           </figcaption>
-          <div className="d-flex justify-center mt-4">
+          <div className="d-flex justify-center mt-4" data-aos="fade-right">
             <a
               href="mailto:jbddevs@gmail.com"
               target="_blank"
@@ -192,9 +184,10 @@ const ContactPage = () => {
             validationSchema={errorComment}
           >
             {({ values, errors, touched, handleChange, handleSubmit }) => (
-              <form className="max-w-md mx-auto mt-24">
+              <form className="max-w-md mx-auto mt-24" data-aos="fade-left">
                 <div className="relative z-0 w-full mb-4 group input-container">
                   <input
+                    data-aos="fade-left"
                     type="email"
                     name="email"
                     id="floating_email"
@@ -215,6 +208,7 @@ const ContactPage = () => {
                 </div>
                 <div className="relative z-0 w-full mb-4 group">
                   <input
+                    data-aos="fade-left"
                     type="text"
                     name="nombre"
                     id="floating_name"
@@ -274,6 +268,7 @@ const ContactPage = () => {
                     </MenuList>
                   </Menu>
                   <input
+                    data-aos="fade-left"
                     type="text"
                     name="tel"
                     id="floating_tel"
@@ -294,6 +289,7 @@ const ContactPage = () => {
                 </small>
                 <div className="relative z-0 w-full mb-4 mt-4 group">
                   <textarea
+                    data-aos="fade-left"
                     rows={4}
                     name="msg"
                     id="floating_textarea"
@@ -314,6 +310,7 @@ const ContactPage = () => {
                 </div>
                 <div className="text-end">
                   <button
+                    data-aos="fade-left"
                     type="submit"
                     onClick={handleSubmit}
                     className="text-white bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"

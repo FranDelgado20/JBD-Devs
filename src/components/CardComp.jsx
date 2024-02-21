@@ -12,7 +12,7 @@ const CardComp = ({ img, name, github }) => {
   return (
     <Col lg={4} className="">
       <div className="rounded-lg color-card">
-        <CardBody className="text-center mx-auto my-3 " >
+        <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}
             alt={name}
@@ -26,8 +26,12 @@ const CardComp = ({ img, name, github }) => {
             {name}
           </Typography>
 
-          <div >
-            <a className="text-slate-50 hover:text-slate-500 transition" href={github} target="_blank">
+          <div>
+            <a
+              className="text-slate-50 hover:text-slate-500 transition"
+              href={github}
+              target="_blank"
+            >
               <i className="bi bi-github fs-1"></i>
             </a>
           </div>
