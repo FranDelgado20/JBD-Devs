@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 .mainSection {
   flex-grow: 1;
@@ -24,21 +23,24 @@
   background-image: linear-gradient(180deg, #000000 0%, #141414 100%);
 }
 
-
-.color-card{
+.color-card {
   background-color: #15181a;
 }
 
-
-@media(max-width: 767px){
-  .marginImg{
+@media (max-width: 767px) {
+  .marginImg {
     margin-bottom: 15px;
   }
-  .tamaño-cel{
+  .tamaño-cel {
     font-size: small;
   }
-  .tamaño-img-cel{
+  .tamaño-img-cel {
     width: 100px;
   }
-  
+}
+@media (max-width: 505px) {
+  .tamanio-cel {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
