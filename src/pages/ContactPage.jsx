@@ -49,7 +49,7 @@
 
 // export default ContactPage;
 import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Formik } from "formik";
 import { errorComment } from "../utils/validationSchema";
 import { useCountries } from "use-react-countries";
@@ -158,6 +158,27 @@ const ContactPage = () => {
               </a>
             </p>
           </figcaption>
+          <div className="d-flex justify-center mt-4">
+            <a
+              href="mailto:jbddevs@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              className="w-75 bg-gray-800 rounded p-2 no-underline text-white border hover:bg-gray-700 transition"
+            >
+              <div className="rounded-3">
+                <div className="text-center">
+                  <Row className="flex-column">
+                    <Col>
+                      <i className="bi bi-envelope fs-2"></i>{" "}
+                    </Col>
+                    <Col>
+                      <div className="fs-6 ">jbddevs@gmail.com</div>
+                    </Col>
+                  </Row>
+                </div>
+              </div>
+            </a>
+          </div>
         </Col>
         <Col md={6} sm={12}>
           <Formik
@@ -268,9 +289,9 @@ const ContactPage = () => {
                     <div className="ms-16">Número de teléfono (Opcional)</div>
                   </label>
                 </div>
-                  <small className="text-danger">
-                    {errors.tel && touched.tel && errors.tel}
-                  </small>
+                <small className="text-danger">
+                  {errors.tel && touched.tel && errors.tel}
+                </small>
                 <div className="relative z-0 w-full mb-4 mt-4 group">
                   <textarea
                     rows={4}

@@ -11,8 +11,8 @@ import { Col } from "react-bootstrap";
 const CardComp = ({ img, name, github }) => {
   return (
     <Col lg={4} className="">
-      <div className="rounded-lg color-card shadow-md shadow-neutral-950">
-        <CardBody className="text-center mx-auto my-3 ">
+      <div className="rounded-lg color-card">
+        <CardBody className="text-center mx-auto my-3 " >
           <Avatar
             src={img}
             alt={name}

@@ -110,7 +110,9 @@ const HomePage = () => {
                 ¡JBD Devs - Donde la creatividad encuentra la tecnología!
               </Typography>
             </div>
-            <Row>
+            <Row
+            //  className=" bg-[url('http://imgfz.com/i/jFTK2wv.png')] bg-cover"
+            >
               {members.map((props, key) => (
                 <CardComp key={key} {...props} />
               ))}

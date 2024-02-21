@@ -24,7 +24,8 @@
 }
 
 .color-card {
-  background-color: #15181a;
+  background-color: rgba(24, 23, 25, 0.419)
+  
 }
 
 @media (max-width: 767px) {
