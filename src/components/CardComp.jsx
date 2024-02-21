@@ -27,7 +27,11 @@ const CardComp = ({ img, name, github }) => {
           </Typography>
 
           <div>
-            <a className="text-slate-50 hover:text-slate-500 transition" href={github} target="_blank">
+            <a
+              className="text-slate-50 hover:text-slate-500 transition"
+              href={github}
+              target="_blank"
+            >
               <i className="bi bi-github fs-1"></i>
             </a>
           </div>

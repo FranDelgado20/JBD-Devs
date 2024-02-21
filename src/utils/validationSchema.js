@@ -6,6 +6,9 @@ export const errorComment = yup.object().shape({
     .string()
     .required("Campo correo electrónico obligatorio")
     .email("Formato de correo electrónico inválido"),
-//   tel: yup.string().matches(/^+54\d{3}\d{7}$/, 'Formato Incorrecto'),
+  tel: yup
+    .string()
+    .max(10, "El número de teléfono debe tener como máximo 10 caracteres")
+    .matches(/^[0-9]+$/, "El número de teléfono solo puede contener dígitos numéricos"),
   msg: yup.string().required("Campo mensaje obligatorio"),
 });

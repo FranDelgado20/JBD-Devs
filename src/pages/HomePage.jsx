@@ -7,10 +7,20 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
+  CardBody,
+  CardHeader,
+  Card,
 } from "@material-tailwind/react";
+import {
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  ServerIcon,
+} from "@heroicons/react/20/solid";
 import CardComp from "../components/CardComp";
 import { Link } from "react-router-dom";
 import TabsComp from "../components/TabsComp";
+import AccordionComp from "../components/AccordionComp";
+import MarcasComp from "../components/MarcasComp";
 // import { useState } from 'react';
 
 const members = [
@@ -20,7 +30,7 @@ const members = [
     github: "https://github.com/SantiJaime",
   },
   {
-    img: `/bude.png`,
+    img: `/budemejor.png`,
     name: "Tomás Budeguer",
     github: "https://github.com/TomasBudeguer",
   },
@@ -100,130 +110,23 @@ const HomePage = () => {
                 ¡JBD Devs - Donde la creatividad encuentra la tecnología!
               </Typography>
             </div>
-            <Row>
+            <Row
+            //  className=" bg-[url('http://imgfz.com/i/jFTK2wv.png')] bg-cover"
+            >
               {members.map((props, key) => (
                 <CardComp key={key} {...props} />
               ))}
             </Row>
           </div>
         </section>
-        <Container className="w-100  flex justify-center text-gray-400">
-          <section className="w-">
-            <Accordion
-              open={open === 1}
-              icon={<Icon id={1} open={open} />}
-              className="mb-2"
-            >
-              <AccordionHeader
-                className="fs-4 p-0"
-                onClick={() => handleOpen(1)}
-              >
-                ¿Tienes una idea en mente?
-              </AccordionHeader>
-              <AccordionBody className="py-2 text-gray-200">
-                ¡Nos encanta escuchar nuevas ideas y convertirlas en realidad!
-                En JBD Devs, estamos aquí para ayudarte a hacer realidad tus
-                sueños digitales. Ya sea que tengas una idea brillante para un
-                sitio web innovador, una aplicación móvil revolucionaria o
-                simplemente una visión que deseas explorar, ¡estamos listos para
-                escucharte!
-              </AccordionBody>
-            </Accordion>
-            <Accordion
-              open={open === 2}
-              icon={<Icon id={2} open={open} />}
-              className="my-3"
-            >
-              <AccordionHeader
-                className="fs-4 p-0"
-                onClick={() => handleOpen(2)}
-              >
-                ¿Listo para dar el primer paso?
-              </AccordionHeader>
-              <AccordionBody className="py-2 text-gray-200">
-                ¡Nos encantaría conocer más sobre tu idea! No importa si es solo
-                un esbozo en una servilleta o una visión clara y detallada,
-                estamos aquí para ayudarte a darle vida.
-              </AccordionBody>
-            </Accordion>
-            <Accordion
-              open={open === 3}
-              icon={<Icon id={3} open={open} />}
-              className="mt-2"
-            >
-              <AccordionHeader
-                className="fs-4 p-0"
-                onClick={() => handleOpen(3)}
-              >
-                ¡Hagamos que suceda!
-              </AccordionHeader>
-              <div className="flex align-items-center">
-                <AccordionBody className="text-gray-200 py-2">
-                  ¡No esperes más! Ponte en contacto con nosotros hoy mismo y
-                  descubre cómo podemos colaborar para hacer realidad tus
-                  ambiciones digitales.
-                  <Link className=" ms-3 no-underline" to={"/contact"}>
-                    <Button
-                      variant="outlined"
-                      size="sm"
-                      className="rounded-full bg-white "
-                    >
-                      Contáctanos
-                    </Button>
-                  </Link>
-                </AccordionBody>
-              </div>
-            </Accordion>
-          </section>
+        <Container fluid>
+          <AccordionComp />
         </Container>
         <Container fluid>
           <TabsComp />
         </Container>
         <Container fluid>
-          <div className="  py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <h2 className="text-center text-lg font-semibold leading-8 text-gray-400">
-                Tecnologías utilizadas
-              </h2>
-              <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-                <img
-                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                  src="https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png"
-                  alt="Transistor"
-                  width={158}
-                  height={48}
-                />
-                <img
-                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                  src="/tailwind-removebg-preview.png"
-                  alt="Reform"
-                  width={158}
-                  height={48}
-                />
-                <img
-                  className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-                  src="https://react-bootstrap.netlify.app/img/logo.svg"
-                  alt="Tuple"
-                  width={158}
-                  height={48}
-                />
-                <img
-                  className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-                  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-5-logo-icon.png"
-                  alt="SavvyCal"
-                  width={158}
-                  height={48}
-                />
-                <img
-                  className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-                  src="https://www.material-tailwind.com/image/logo-mt.png"
-                  alt="Statamic"
-                  width={158}
-                  height={48}
-                />
-              </div>
-            </div>
-          </div>
+          <MarcasComp />
         </Container>
       </Container>
     </>
