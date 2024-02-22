@@ -37,9 +37,12 @@ const AccordionComp = () => {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
-    <div className="relative isolate overflow-hidden color-card px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0" >
-      <Row >
-        <div className="absolute inset-0 -z-10 overflow-hidden" data-aos="zoom-out">
+    <div className="relative isolate overflow-hidden color-card px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+      <Row>
+        <div
+          className="absolute inset-0 -z-10 overflow-hidden"
+          data-aos="zoom-out"
+        >
           <svg
             className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-500 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
             aria-hidden="true"
@@ -148,13 +151,17 @@ const AccordionComp = () => {
             </div>
           </div>
         </Col>
-        <Col lg={6} >
+        <Col lg={6}>
           <div className="" data-aos="zoom-in-left">
-            <img
+            <video className="h-full w-full rounded-lg"  autoPlay>
+              <source src="/Secuencia 02.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            {/* <img
               className="w-[48rem] max-w-none rounded-xl tamanio-cel sm:w-[57rem] img-fluid"
               src="/visual.png"
               alt=""
-            />
+            /> */}
           </div>
         </Col>
       </Row>
