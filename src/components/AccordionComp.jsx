@@ -1,12 +1,9 @@
 import {
-  Typography,
+  
   Button,
   Accordion,
   AccordionHeader,
   AccordionBody,
-  CardBody,
-  CardHeader,
-  Card,
 } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
@@ -143,7 +140,7 @@ const AccordionComp = () => {
                           Contáctanos
                         </Button>
                       </Link>
-                      <hr />
+                     
                     </AccordionBody>
                   </div>
                 </Accordion>
