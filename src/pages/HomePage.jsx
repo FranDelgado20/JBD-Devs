@@ -1,67 +1,30 @@
 // import { Card, CardBody, Tooltip, Typography } from "@material-tailwind/react";
 import React, { useState } from "react";
-import { Breadcrumb, Container, Row } from "react-bootstrap";
-import {
-  Typography,
-  Button,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  CardBody,
-  CardHeader,
-  Card,
-  Breadcrumbs,
-} from "@material-tailwind/react";
-import {
-  CloudArrowUpIcon,
-  LockClosedIcon,
-  ServerIcon,
-} from "@heroicons/react/20/solid";
+import { Container, Row } from "react-bootstrap";
+import { Typography, Breadcrumbs } from "@material-tailwind/react";
 import CardComp from "../components/CardComp";
-import { Link } from "react-router-dom";
 import TabsComp from "../components/TabsComp";
 import AccordionComp from "../components/AccordionComp";
 import MarcasComp from "../components/MarcasComp";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
-// import { useState } from 'react';
 
 const members = [
   {
-    img: `/jaime2.png`,
+    img: `/nosotros/jaime.png`,
     name: "Santiago Jaime",
     github: "https://github.com/SantiJaime",
   },
   {
-    img: `/budemejor.png`,
+    img: `/nosotros/bude.png`,
     name: "Tomás Budeguer",
     github: "https://github.com/TomasBudeguer",
   },
   {
-    img: `/dlg.png`,
+    img: `/nosotros/dlg.png`,
     name: "Francisco Delgado",
     github: "https://github.com/FranDelgado20",
   },
 ];
-function Icon({ id, open }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className={`${
-        id === open ? "rotate-180" : ""
-      } h-5 w-5 transition-transform`}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
-}
+
 const HomePage = () => {
   const [open, setOpen] = useState(1);
 
@@ -73,7 +36,7 @@ const HomePage = () => {
         <section className="min-h-screen py-8 px-8 lg:py-28">
           <div className="d-flex justify-center">
             <Breadcrumbs
-              className="rounded-full bg-gradient-to-tr color-card p-1 justify-center"
+              className="rounded-full bg-gradient-to-tr color-card justify-center p-2"
               separator={<span className="text-white ">/</span>}
             >
               <a
@@ -139,11 +102,7 @@ const HomePage = () => {
               </Typography>
             </div>
 
-            <Row
-              id="cardsMembers"
-
-              //  className=" bg-[url('http://imgfz.com/i/jFTK2wv.png')] bg-cover"
-            >
+            <Row id="cardsMembers">
               {members.map((props, key) => (
                 <CardComp key={key} {...props} />
               ))}
@@ -151,18 +110,12 @@ const HomePage = () => {
           </div>
         </section>
         <div id="union">
-          <Container fluid>
-            <AccordionComp />
-          </Container>
+          <AccordionComp />
         </div>
         <div id="proyectos">
-          <Container fluid>
-            <TabsComp />
-          </Container>
+          <TabsComp />
         </div>
-        <Container fluid>
-          <MarcasComp />
-        </Container>
+        <MarcasComp />
       </Container>
     </>
   );

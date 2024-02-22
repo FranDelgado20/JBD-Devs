@@ -16,13 +16,14 @@ const MarcasComp = () => {
         Tecnologías utilizadas
       </h3>
       <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 sm:max-w-xl sm:grid-cols-2 md:grid-cols-3 sm:gap-x-4 lg:mx-0 lg:max-w-none lg:grid-cols-6">
-        {images.map((img) => (
+        {images.map((img, index) => (
           <img
             className="col-span-1 max-h-12 w-full object-contain my-5"
             src={img}
             alt={img}
             width={158}
             height={48}
+            key={index}
           />
         ))}
       </div>
