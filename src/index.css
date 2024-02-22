@@ -24,8 +24,7 @@
 }
 
 .color-card {
-  background-color: rgba(24, 23, 25, 0.419)
-  
+  background-color: rgba(24, 23, 25, 0.419);
 }
 
 @media (max-width: 767px) {
@@ -38,10 +37,16 @@
   .tamaño-img-cel {
     width: 100px;
   }
+  /* .margBread {
+    margin-top: 5px;
+  } */
 }
 @media (max-width: 505px) {
   .tamanio-cel {
     width: 100%;
     margin-top: 50px;
   }
+   .bread {
+    font-size: smaller;
+  } 
 }
