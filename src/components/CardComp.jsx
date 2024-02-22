@@ -1,8 +1,6 @@
 import {
   Avatar,
-  Card,
   CardBody,
-  IconButton,
   Typography,
 } from "@material-tailwind/react";
 import React from "react";

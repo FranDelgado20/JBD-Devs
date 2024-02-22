@@ -12,11 +12,8 @@ import { Container } from "react-bootstrap";
 
 const AboutUsPage = () => {
   const { countries } = useCountries();
-
-  // Definir los países que deseas mostrar en el menú
   const countriesToShow = ["Argentina", "Brazil", "Chile", "Spain", "United States", "United Kingdom", "Canada", "Australia", "Ecuador", "Peru","Venezuela", "Colombia", "Mexico", "Uruguay"];
 
-  // Filtrar los países que coinciden con la lista countriesToShow
   const filteredCountries = countries.filter(country =>
     countriesToShow.includes(country.name)
   );
