@@ -89,7 +89,8 @@ const TabsComp = () => {
                   <div className="color-card p-3 rounded-lg">
                     <Row>
                       <Col lg={6} sm={12} className="mt-2">
-                        <div>
+                        <div data-aos="fade-up"
+     data-aos-duration="3000">
                           <h2 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl text-center">
                             {value}
                           </h2>
@@ -101,14 +102,15 @@ const TabsComp = () => {
 
                       <Col lg={6} sm={12}>
                         <div className="grid gap-4">
-                          <div>
+                          <div  data-aos="zoom-in-left">
+
                             <img
                               className="h-auto img-fluid rounded-lg object-cover object-center md:h-[480px]"
                               src={active}
                               alt=""
                             />
                           </div>
-                          <div className="grid grid-cols-3 gap-2">
+                          <div data-aos="zoom-out" className="grid grid-cols-3 gap-2">
                             {img &&
                               img.map((image, index) => (
                                 <div key={index}>
