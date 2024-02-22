@@ -3,7 +3,6 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-
 const Error404 = () => {
   return (
     <Container
@@ -12,18 +11,20 @@ const Error404 = () => {
     >
       <div className="text-center">
         <img
-          src="/Diseño_sin_título-removebg-preview.png "
-          alt="error"
-          className=" mx-auto tamaño-img min-h-full"
-         
+          src="/error.png"
+          alt="Error 404"
+          className="mx-auto tamaño-img min-h-full"
         />
-        <Link className="text-dark" to={'/'}>
-         <Button variant="outlined" size="sm" className="rounded-full bg-white ">
-       Volver al inicio
-      </Button>
+        <Link className="text-dark" to={"/"}>
+          <Button
+            variant="outlined"
+            size="sm"
+            className="rounded-full bg-white "
+          >
+            Volver al inicio
+          </Button>
         </Link>
       </div>
-      
     </Container>
   );
 };
