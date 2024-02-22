@@ -151,7 +151,7 @@ const AccordionComp = () => {
         <Col lg={6}>
           <div className="" data-aos="zoom-in-left">
             <img
-              className="w-[48rem] max-w-none rounded-xl tamanio-cel sm:w-[57rem] img-fluid"
+              className="w-[48rem] max-w-none rounded-xl tamanio-cel sm:w-[57rem] shadow-neutral-800 shadow-2xl img-fluid"
               src="/modelo.png"
               alt=""
             />
