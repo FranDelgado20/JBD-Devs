@@ -1,6 +1,6 @@
 // import { Card, CardBody, Tooltip, Typography } from "@material-tailwind/react";
 import React, { useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Breadcrumb, Container, Row } from "react-bootstrap";
 import {
   Typography,
   Button,
@@ -10,6 +10,7 @@ import {
   CardBody,
   CardHeader,
   Card,
+  Breadcrumbs,
 } from "@material-tailwind/react";
 import {
   CloudArrowUpIcon,
@@ -21,6 +22,7 @@ import { Link } from "react-router-dom";
 import TabsComp from "../components/TabsComp";
 import AccordionComp from "../components/AccordionComp";
 import MarcasComp from "../components/MarcasComp";
+import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 // import { useState } from 'react';
 
 const members = [
@@ -69,6 +71,32 @@ const HomePage = () => {
     <>
       <Container fluid>
         <section className="min-h-screen py-8 px-8 lg:py-28">
+          <div className="d-flex justify-center">
+            <Breadcrumbs
+              className="rounded-full bg-gradient-to-tr color-card p-1 justify-center"
+              separator={<span className="text-white ">/</span>}
+            >
+              <a
+                href="#cardsMembers"
+                className="rounded-full bg-white px-3 py-1 font-medium text-gray-900 no-underline bread"
+              >
+                Nosotros
+              </a>
+              <a
+                href="#union"
+                className="rounded-full bg-white px-3 py-1 font-medium text-gray-900 no-underline bread"
+              >
+                Juntos
+              </a>
+              <a
+                href="#proyectos"
+                className="rounded-full bg-white px-3 py-1 font-medium text-gray-900 no-underline bread"
+              >
+                Proyectos
+              </a>
+            </Breadcrumbs>
+          </div>
+
           <div className="container mx-auto">
             <div className="mb-16 text-center lg:mb-28">
               <Typography variant="h2" className="!text-gray-500 ">
@@ -110,8 +138,11 @@ const HomePage = () => {
                 ¡JBD Devs - Donde la creatividad encuentra la tecnología!
               </Typography>
             </div>
+
             <Row
-            //  className=" bg-[url('http://imgfz.com/i/jFTK2wv.png')] bg-cover"
+              id="cardsMembers"
+
+              //  className=" bg-[url('http://imgfz.com/i/jFTK2wv.png')] bg-cover"
             >
               {members.map((props, key) => (
                 <CardComp key={key} {...props} />
@@ -119,12 +150,16 @@ const HomePage = () => {
             </Row>
           </div>
         </section>
-        <Container fluid>
-          <AccordionComp />
-        </Container>
-        <Container fluid>
-          <TabsComp />
-        </Container>
+        <div id="union">
+          <Container fluid>
+            <AccordionComp />
+          </Container>
+        </div>
+        <div id="proyectos">
+          <Container fluid>
+            <TabsComp />
+          </Container>
+        </div>
         <Container fluid>
           <MarcasComp />
         </Container>
