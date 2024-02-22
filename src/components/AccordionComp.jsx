@@ -153,7 +153,7 @@ const AccordionComp = () => {
         </Col>
         <Col lg={6}>
           <div className="" data-aos="zoom-in-left">
-            <video className="h-full w-full rounded-lg"  autoPlay>
+            <video className="h-full w-full rounded-lg" controls autoPlay>
               <source src="/Secuencia 02.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
