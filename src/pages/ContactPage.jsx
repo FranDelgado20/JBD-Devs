@@ -285,8 +285,8 @@ const ContactPage = () => {
                   <div className="d-flex justify-content-center mb-3">
                     <ReCAPTCHA
                       ref={captcha}
-                      sitekey={import.meta.env.VITE_APP_API_LOCAL_RECAPTCHA}
-                      // sitekey={import.meta.env.VITE_APP_API_VERCEL_RECAPTCHA}
+                      // sitekey={import.meta.env.VITE_APP_API_LOCAL_RECAPTCHA}
+                      sitekey={import.meta.env.VITE_APP_API_VERCEL_RECAPTCHA}
                       onChange={onRecaptcha}
                     />
                   </div>
