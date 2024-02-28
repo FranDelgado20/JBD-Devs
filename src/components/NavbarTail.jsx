@@ -1,4 +1,3 @@
-
 import React, { Fragment } from "react";
 import { useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -7,7 +6,6 @@ import { Link, useLocation } from "react-router-dom";
 const navigation = [
   { name: "Inicio", to: "/", current: false },
   { name: "Contacto", to: "/contact", current: false },
- 
 ];
 const NavbarTail = () => {
   const { pathname } = useLocation();
@@ -63,7 +61,7 @@ const NavbarTail = () => {
           <Dialog
             as="div"
             className="lg:hidden"
-            open={mobileMenuOpen}
+            // open={mobileMenuOpen}
             onClose={setMobileMenuOpen}
           >
             <Transition.Child
@@ -82,7 +80,7 @@ const NavbarTail = () => {
               enter="transition ease-in-out duration-500 transform"
               enterFrom="-translate-y-full"
               enterTo="translate-y-0"
-              leave="transition ease-in-out duration-500 transform"
+              leave="transition ease-in-out duration-1000 transform"
               leaveFrom="translate-y-0"
               leaveTo="-translate-y-full"
             >

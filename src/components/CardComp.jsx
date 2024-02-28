@@ -13,7 +13,7 @@ const CardComp = ({ img, name, github }) => {
     
     {name === "Santiago Jaime" ? <>
     <Col lg={4} className="">
-      <div className="rounded-lg color-card"  data-aos="fade-right">
+      <div className="rounded-lg color-card"  data-aos="zoom-in">
         <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}
@@ -42,7 +42,7 @@ const CardComp = ({ img, name, github }) => {
     </Col>
     </> : name === "Francisco Delgado" ? <>
     <Col lg={4} className="">
-      <div className="rounded-lg color-card"  data-aos="fade-left">
+      <div className="rounded-lg color-card"  data-aos="zoom-in">
         <CardBody className="text-center mx-auto my-3 ">
           <Avatar
             src={img}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import { Formik } from "formik";
 import { errorComment } from "../utils/validationSchema";
 import { useCountries } from "use-react-countries";
@@ -14,8 +14,18 @@ import emailjs from "emailjs-com";
 
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactPage = () => {
+  const captcha = useRef(null);
+  const [captchaValido, setCaptchaValido] = useState(null);
+
+  const onRecaptcha = () => {
+    if (captcha.current.getValue()) {
+      setCaptchaValido(true);
+    }
+  };
+
   const { countries } = useCountries();
 
   const countriesToShow = [
@@ -50,33 +60,38 @@ const ContactPage = () => {
 
   const sendComment = async ({ nombre, email, tel, msg }) => {
     try {
-      if (isNaN(tel) || !tel) tel = "No asignado";
-      else tel = countryCallingCode + tel;
+      if (captcha.current.getValue()) {
+        setCaptchaValido(true);
+        if (isNaN(tel) || !tel) tel = "No asignado";
+        else tel = countryCallingCode + tel;
 
-      const templateParams = {
-        from_name: nombre,
-        from_email: email,
-        from_tel: tel,
-        message: msg,
-      };
-      await emailjs.send(
-        import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAIL_PUBLIC_KEY
-      );
+        const templateParams = {
+          from_name: nombre,
+          from_email: email,
+          from_tel: tel,
+          message: msg,
+        };
+        await emailjs.send(
+          import.meta.env.VITE_EMAIL_SERVICE_ID,
+          import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+          templateParams,
+          import.meta.env.VITE_EMAIL_PUBLIC_KEY
+        );
 
-      toast.success("Mensaje enviado correctamente", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Bounce,
-      });
+        toast.success("Mensaje enviado correctamente", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Bounce,
+        });
+      } else {
+        setCaptchaValido(false);
+      }
     } catch (error) {
       toast.error(error, {
         position: "bottom-center",
@@ -143,7 +158,7 @@ const ContactPage = () => {
               validationSchema={errorComment}
             >
               {({ values, errors, touched, handleChange, handleSubmit }) => (
-                <form className="max-w-md mx-auto mt-24" data-aos="fade-left">
+                <form className="max-w-md mx-auto mt-24" data-aos="zoom-in">
                   <div className="relative z-0 w-full mb-4 group input-container">
                     <input
                       data-aos="fade-left"
@@ -152,7 +167,7 @@ const ContactPage = () => {
                       id="floating_email"
                       value={values.email}
                       onChange={handleChange}
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                      className="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
                       placeholder=" "
                     />
                     <label
@@ -173,7 +188,7 @@ const ContactPage = () => {
                       id="floating_name"
                       onChange={handleChange}
                       value={values.nombre}
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                      className="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
                       placeholder=" "
                     />
                     <label
@@ -233,7 +248,7 @@ const ContactPage = () => {
                       id="floating_tel"
                       onChange={handleChange}
                       value={values.tel}
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                      className="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
                       placeholder=" "
                     />
                     <label
@@ -254,7 +269,7 @@ const ContactPage = () => {
                       id="floating_textarea"
                       onChange={handleChange}
                       value={values.msg}
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
+                      className="block py-2.5 px-0 w-full text-sm bg-transparent border-b-2 border-gray-300 appearance-none text-white dark:border-gray-600 dark:focus:border-neutral-50 focus:outline-none focus:ring-0 focus:border-neutral-50 peer"
                       placeholder=" "
                     />
                     <label
@@ -267,6 +282,21 @@ const ContactPage = () => {
                       {errors.msg && touched.msg && errors.msg}
                     </small>
                   </div>
+                  <div className="d-flex justify-content-center mb-3">
+                    <ReCAPTCHA
+                      ref={captcha}
+                      sitekey={import.meta.env.VITE_APP_API_LOCAL_RECAPTCHA}
+                      // sitekey={import.meta.env.VITE_APP_API_VERCEL_RECAPTCHA}
+                      onChange={onRecaptcha}
+                    />
+                  </div>
+                  {captchaValido === false ? (
+                    <Alert variant="danger" className="mb-3">
+                      Acepte el captcha para enviar!
+                    </Alert>
+                  ) : (
+                    <></>
+                  )}
                   <div className="text-end">
                     <button
                       data-aos="fade-left"
