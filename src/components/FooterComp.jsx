@@ -14,7 +14,7 @@ const FooterComp = () => {
         <Col sm={6} className="flex justify-center my-3 align-items-baseline">
           <h3 >Encontranos en</h3>
           <a
-            href="https://www.linkedin.com/in/jbd-devs-87426a2b4/"
+            href="https://www.linkedin.com/company/jbd-devs"
             className="linkedIn"
             target="_blank"
           >
