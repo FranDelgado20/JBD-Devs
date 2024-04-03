@@ -41,7 +41,7 @@ const data = [
       "/proyectos/SanValero2.png",
       "/proyectos/SanValero3.png",
     ],
-    link: "En proceso",
+    link: "Link en proceso...",
   },
 ];
 
@@ -126,7 +126,7 @@ const TabsComp = () => {
                           ) : (
                             <div className="flex flex-column align-items-center">
                               <h3 className=" text-gray-100 font-bold mb-3">
-                                Link en proceso...
+                                {link}
                               </h3>
                               <Spinner animation="border" />
                             </div>
