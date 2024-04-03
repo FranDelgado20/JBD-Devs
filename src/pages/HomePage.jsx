@@ -26,20 +26,12 @@ const members = [
 ];
 
 const HomePage = () => {
-  const [open, setOpen] = useState(1);
   const [primerParr, setPrimerParr] = useState(true);
 
-  const cambiarParrUno = () => {
-    setPrimerParr(true);
-  };
-  const cambiarParrDos = () => {
-    setPrimerParr(false);
-  };
-
-  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const cambiarParrUno = () => setPrimerParr(true);
+  const cambiarParrDos = () => setPrimerParr(false);
 
   return (
-    <>
       <Container fluid>
         <section className="min-h-screen py-8 px-8">
           <div className="d-flex justify-center" data-aos="zoom-in">
@@ -73,15 +65,6 @@ const HomePage = () => {
               <h2 className="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-600 md:text-5xl lg:text-6xl lg:max-w-7xl">
                 ¡Conozca a nuestro equipo!
               </h2>
-              {/* <Typography variant="h2" className="!text-gray-500 ">
-                ¡Conozca a nuestro equipo!
-              </Typography> */}
-              {/* <Typography
-                variant="h1"
-                className="my-2 !text-2xl lg:!text-4xl !text-gray-500"
-              >
-                JBD Devs
-              </Typography> */}
               <h1 className="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-600 md:text-5xl lg:text-5xl lg:max-w-7xl">
                 JBD Devs
               </h1>
@@ -120,12 +103,6 @@ const HomePage = () => {
               <h1 className="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-gray-400 md:text-5xl lg:text-2xl lg:max-w-7xl mb-3">
                 ¡JBD Devs - Donde la creatividad encuentra la tecnología!
               </h1>
-              {/* <Typography
-                variant="lead"
-                className="mx-auto w-full !text-gray-400 max-w-4xl"
-              >
-                ¡JBD Devs - Donde la creatividad encuentra la tecnología!
-              </Typography> */}
               {primerParr ? (
                 <nav aria-label="Breadcrumb" className="flex justify-center">
                   <ol className="flex overflow-hidden rounded-lg border border-gray-200 text-gray-600">
@@ -192,7 +169,6 @@ const HomePage = () => {
         </div>
         <MarcasComp />
       </Container>
-    </>
   );
 };
 
