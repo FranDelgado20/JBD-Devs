@@ -22,7 +22,7 @@ const NavbarTail = () => {
         >
           <div className="flex lg:flex-1">
             <Link to={"/"} className="-m-1.5 p-1.5 w-44">
-              {/* <span className="sr-only">Your Company</span> */}
+              
               <img
                 className="img-fluid"
                 src="11-removebg-preview.png"
