@@ -10,16 +10,16 @@ import {
 import { Col, Row } from "react-bootstrap";
 
 const data = [
-  {
-    label: "Ifaun",
-    value: "Ifaun",
-    desc: `IFAUN - Instituto de Medicina: En colaboración con expertos en el campo médico, hemos desarrollado el proyecto IFAUN, un instituto virtual dedicado a la enseñanza de diversas materias relacionadas con la carrera de medicina. Desde anatomía hasta clínica médica, nuestros cursos están diseñados para ofrecer una experiencia educativa completa y actualizada. Con recursos interactivos, clases grabadas y seguimiento del progreso del estudiante, IFAUN es el recurso ideal para estudiantes y profesionales en busca de un aprendizaje dinámico y colaborativo en el campo de la medicina.`,
-    img: [
-      "/proyectos/Ifaun1.png",
-      "/proyectos/Ifaun2.png",
-      "/proyectos/Ifaun3.png",
-    ],
-  },
+  // {
+  //   label: "Ifaun",
+  //   value: "Ifaun",
+  //   desc: `IFAUN - Instituto de Medicina: En colaboración con expertos en el campo médico, hemos desarrollado el proyecto IFAUN, un instituto virtual dedicado a la enseñanza de diversas materias relacionadas con la carrera de medicina. Desde anatomía hasta clínica médica, nuestros cursos están diseñados para ofrecer una experiencia educativa completa y actualizada. Con recursos interactivos, clases grabadas y seguimiento del progreso del estudiante, IFAUN es el recurso ideal para estudiantes y profesionales en busca de un aprendizaje dinámico y colaborativo en el campo de la medicina.`,
+  //   img: [
+  //     "/proyectos/Ifaun1.png",
+  //     "/proyectos/Ifaun2.png",
+  //     "/proyectos/Ifaun3.png",
+  //   ],
+  // },
   {
     label: "Chevronar",
     value: "Chevronar",
@@ -43,8 +43,8 @@ const data = [
 ];
 
 const TabsComp = () => {
-  const [active, setActive] = useState("/proyectos/Ifaun1.png");
-  const [activeTab, setActiveTab] = useState("Ifaun");
+  const [active, setActive] = useState("/proyectos/Chevronar1.png");
+  const [activeTab, setActiveTab] = useState("Chevronar");
 
   const tabChange = (value) => {
     setActiveTab(value);
