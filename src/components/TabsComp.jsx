@@ -52,7 +52,7 @@ const TabsComp = () => {
   const tabChange = (value) => {
     setActiveTab(value);
 
-    if (value === "DecoMotivo") setActive("/proyectos/DecoMotivo1.png");
+    if (value === "Deco Motivo") setActive("/proyectos/DecoMotivo1.png");
     else if (value === "Chevronar") setActive("/proyectos/Chevronar1.png");
     else if (value === "San Valero") setActive("/proyectos/SanValero1.png");
   };
